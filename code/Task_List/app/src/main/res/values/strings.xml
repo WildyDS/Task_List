@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Task List</string>
+    <string name="nav_header_title">Task List App</string>
+    <string name="nav_header_subtitle">Do whatever you can with it</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_tasks">Tasks</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="task_title">Title</string>
+    <string name="task_description">Description</string>
+    <string name="task_enter_title">Enter task title</string>
+    <string name="task_enter_description">Enter task description</string>
+
+    <string name="action_add_task">Add task</string>
+    <string name="action_add">Add</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+
+    <string name="tasks_tab_all">All</string>
+    <string name="tasks_tab_favorite">Favorite</string>
+
+    <string name="settings_item">%1$s (%2$s)</string>
+
+    <string name="task">Task</string>
+    <string name="task_saved">Task "%1$s" saved</string>
+    <string name="task_deleted">Task "%1$s" deleted</string>
+</resources>
