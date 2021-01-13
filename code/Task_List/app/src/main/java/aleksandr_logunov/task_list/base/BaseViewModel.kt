@@ -7,18 +7,18 @@ import io.reactivex.rxjava3.disposables.Disposable
 abstract class BaseViewModel : ViewModel(), IBaseViewModel {
     @Suppress("PropertyName")
     val TAG: String? = javaClass.canonicalName
-    private val disposable = CompositeDisposable()
+    private val mDisposable = CompositeDisposable()
 
-    override fun addDisposable(d: Disposable) = disposable.add(d)
+    override fun addDisposable(disposable: Disposable) = mDisposable.add(disposable)
 
-    override fun addAllDisposables(vararg ds: Disposable) = disposable.addAll(*ds)
+    override fun addAllDisposables(vararg disposables: Disposable) = mDisposable.addAll(*disposables)
 
     override fun clearDisposable() {
-        disposable.clear()
+        mDisposable.clear()
     }
 
     override fun onCleared() {
         super.onCleared()
-        disposable.clear()
+        mDisposable.clear()
     }
 }

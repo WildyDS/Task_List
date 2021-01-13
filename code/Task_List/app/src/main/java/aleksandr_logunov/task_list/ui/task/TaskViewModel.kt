@@ -18,16 +18,22 @@ class TaskViewModel : BaseViewModel(), ITaskViewModel {
     private var _task: ITask? = null
 
     override fun save(title: String, description: String, onSaved: OnSaved?) {
+        // Using .let for storing _task in "it" variable cause it can be changed in runtime
         _task.let {
             (
-                    if (it == null) Injector.tasksRepository.add(title, description)
-                    else Injector.tasksRepository.add(
-                        it.run {
-                            it.title = title
-                            it.description = description
-                            it
-                        }
-                    )
+                    // So we can check it for null
+                    if (it == null)
+                        // And create new task
+                        Injector.tasksRepository.add(title, description)
+                    else
+                        // Or edit current
+                        Injector.tasksRepository.add(
+                            it.run {
+                                it.title = title
+                                it.description = description
+                                it
+                            }
+                        )
                     )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -52,7 +58,7 @@ class TaskViewModel : BaseViewModel(), ITaskViewModel {
                 .doOnError { }
                 .subscribe(
                     { onDeleted?.run() },
-                    { error -> Log.w(TAG, "Delete error! ", error) }
+                    { error -> Log.e(TAG, "Delete error! ", error) }
                 )
                 .run { addDisposable(this) }
         }

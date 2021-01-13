@@ -59,7 +59,7 @@ class TaskListRecyclerViewAdapter(
         val taskDescriptionTV: TextView = view.findViewById(R.id.tv_task_description)
         val taskAMV: ActionMenuView = view.findViewById(R.id.amv_task)
         override fun toString(): String {
-            return super.toString() + " '" + taskTitleTV.text + "'"
+            return "${super.toString()} '${taskTitleTV.text}'"
         }
     }
 
