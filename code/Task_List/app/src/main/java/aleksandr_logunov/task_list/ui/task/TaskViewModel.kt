@@ -18,9 +18,9 @@ class TaskViewModel : BaseViewModel(), ITaskViewModel {
     private var _task: ITask? = null
 
     override fun save(title: String, description: String, onSaved: OnSaved?) {
-        _task.let {
+        _task?.let {// use let like variable?.let {}
             (
-                    if (it == null) Injector.tasksRepository.add(title, description)
+                    if (it == null) Injector.tasksRepository.add(title, description) // now we don't need a null check
                     else Injector.tasksRepository.add(
                         it.run {
                             it.title = title
@@ -52,7 +52,7 @@ class TaskViewModel : BaseViewModel(), ITaskViewModel {
                 .doOnError { }
                 .subscribe(
                     { onDeleted?.run() },
-                    { error -> Log.w(TAG, "Delete error! ", error) }
+                    { error -> Log.w(TAG, "Delete error! ", error) } // can be Log.e
                 )
                 .run { addDisposable(this) }
         }

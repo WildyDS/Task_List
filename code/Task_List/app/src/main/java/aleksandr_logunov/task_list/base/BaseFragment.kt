@@ -14,7 +14,7 @@ abstract class BaseFragment<T : ViewBinding, VM : BaseViewModel?>(@LayoutRes lay
     @Suppress("PropertyName")
     val TAG: String? = javaClass.canonicalName
 
-    var viewModel: VM? = null
+    var viewModel: VM? = null // naming conventions vm
 
     override val isDrawerLockedClose = false
     override val fabOnClick: View.OnClickListener? = null

@@ -15,10 +15,10 @@ class SettingsFragment :
         super.onViewCreated(view, savedInstanceState)
         viewBinding = FragmentSettingsBinding.bind(view)
         for (item in DummyContent.ITEMS) {
-            viewBinding!!.rgSettings.addView(RadioButton(context).apply {
+            viewBinding?.rgSettings?.addView(RadioButton(context).apply { // instead of !! use ?
                 text = getString(R.string.settings_item, item.name, item.details)
                 setOnCheckedChangeListener { _, isChecked ->
-                    showSnack("Changing settings is not implemented yet.")
+                    showSnack("Changing settings is not implemented yet.") // strings xml, no hardcode
                     Log.d(TAG, "${if (isChecked) "Checked" else "Unchecked"}: $item")
                 }
             })

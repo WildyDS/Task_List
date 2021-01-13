@@ -36,7 +36,7 @@ class TaskListViewModel : BaseViewModel(), ITaskListViewModel {
         TODO("Not yet implemented")
     }
 
-    override fun deleteTask(task: ITask, onDelete: Runnable?) {
+    override fun deleteTask(task: ITask, onDelete: Runnable?) { // why do u need a runnable? better use coroutines or RxJava, u can pass functions as func : ():Unit
         Injector.tasksRepository.delete(task)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -49,7 +49,7 @@ class TaskListViewModel : BaseViewModel(), ITaskListViewModel {
     }
 
     companion object {
-        // TODO: Save tabs somewhere else
+        // TODO: Save tabs somewhere else - good idea, like a sealed class or an enum
         private const val tabAll = "All"
         private const val tabToDo = "To Do"
         private const val tabInProgress = "In Progress"
