@@ -20,7 +20,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
-        with (viewBinding) {
+        with (viewBinding) { // better have this in a base class
             setContentView(root)
             setSupportActionBar(appBarMain.toolbar)
             val navController = findNavController(R.id.nav_host_fragment)

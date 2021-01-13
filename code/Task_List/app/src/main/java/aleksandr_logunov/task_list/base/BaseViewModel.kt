@@ -9,9 +9,9 @@ abstract class BaseViewModel : ViewModel(), IBaseViewModel {
     val TAG: String? = javaClass.canonicalName
     private val disposable = CompositeDisposable()
 
-    override fun addDisposable(d: Disposable) = disposable.add(d)
+    override fun addDisposable(d: Disposable) = disposable.add(d) // naming!
 
-    override fun addAllDisposables(vararg ds: Disposable) = disposable.addAll(*ds)
+    override fun addAllDisposables(vararg ds: Disposable) = disposable.addAll(*ds) // again naming
 
     override fun clearDisposable() {
         disposable.clear()
