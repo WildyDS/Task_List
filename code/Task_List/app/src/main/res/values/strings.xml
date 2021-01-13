@@ -27,4 +27,6 @@
     <string name="task">Task</string>
     <string name="task_saved">Task "%1$s" saved</string>
     <string name="task_deleted">Task "%1$s" deleted</string>
+
+    <string name="change_setting">Changing settings is not implemented yet.</string>
 </resources>

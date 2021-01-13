@@ -36,14 +36,14 @@ class TaskListViewModel : BaseViewModel(), ITaskListViewModel {
         TODO("Not yet implemented")
     }
 
-    override fun deleteTask(task: ITask, onDelete: Runnable?) {
+    override fun deleteTask(task: ITask, onDelete: OnDelete?) {
         Injector.tasksRepository.delete(task)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnError { }
             .subscribe(
-                { onDelete?.run() },
-                { error -> Log.w(TAG, "Delete error! ", error) }
+                { onDelete?.invoke() },
+                { error -> Log.e(TAG, "Delete error! ", error) }
             )
             .run { addDisposable(this) }
     }

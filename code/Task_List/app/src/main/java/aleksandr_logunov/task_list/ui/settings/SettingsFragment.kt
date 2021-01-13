@@ -14,14 +14,16 @@ class SettingsFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewBinding = FragmentSettingsBinding.bind(view)
-        for (item in DummyContent.ITEMS) {
-            viewBinding!!.rgSettings.addView(RadioButton(context).apply {
-                text = getString(R.string.settings_item, item.name, item.details)
-                setOnCheckedChangeListener { _, isChecked ->
-                    showSnack("Changing settings is not implemented yet.")
-                    Log.d(TAG, "${if (isChecked) "Checked" else "Unchecked"}: $item")
-                }
-            })
+        viewBinding?.let {
+            for (item in DummyContent.ITEMS) {
+                it.rgSettings.addView(RadioButton(context).apply {
+                    text = getString(R.string.settings_item, item.name, item.details)
+                    setOnCheckedChangeListener { _, isChecked ->
+                        showSnack(getString(R.string.change_setting))
+                        Log.d(TAG, "${if (isChecked) "Checked" else "Unchecked"}: $item")
+                    }
+                })
+            }
         }
     }
 }
