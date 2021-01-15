@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "aleksandr_logunov.tasklist"
+        applicationId "aleksandr_logunov.task_list"
         minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
@@ -60,6 +60,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     implementation "androidx.room:room-runtime:$room_version"
+    androidTestImplementation 'androidx.test:rules:1.3.0-beta01'
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-rxjava3:$room_version"
 
